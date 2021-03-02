@@ -1,0 +1,267 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中智数码</title>
+<link href="../css/basic.css" rel="stylesheet" type="text/css" />
+<link href="../css/main.css" rel="stylesheet" type="text/css" />
+<link href="../css/tools.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/layer.js"></script>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/dateinput/dateinput.min.js"></script>
+
+<script>
+	$(function(){
+		var div_a =$(".form-tab li");
+		div_a.hover(function(){
+			$(".form-tab li").removeClass("c");
+			$(this).addClass("c");
+			var index =  div_a.index(this); 
+			$(".listBox li")
+					.eq(index).show() 
+					.siblings().hide();
+		});
+		
+		//var list = [{"num":null,"category_id":0,"price":0.0,"variety_id":0,"purchase_price":0.0,"id":0,"title":"sd","model":"mkyong1","description":null},{"num":null,"category_id":0,"price":0.0,"variety_id":0,"purchase_price":0.0,"id":0,"title":"sd","model":"mkyong3 mkyong4","description":null}];
+		$.tools.dateinput.localize("cn", {
+			months: 		 '1月,2月,3月,4月,5月,6月,7月,8月,9月,10月,11月,12月', 
+			shortMonths: '1月,2月,3月,4月,5月,6月,7月,8月,9月,10月,11月,12月',   
+			days: 		 '日,一,二,三,四,五,六', 
+			shortDays: 	 '日,一,二,三,四,五,六'	  
+		});
+		
+		$(":date").dateinput({
+			  format: 'yyyy-mm-dd',
+			  speed: 'fast',
+			  lang:'cn'});
+		
+		$.ajax({
+		  url: '../good/test.go',
+		  success: function(data) {
+		    
+			
+			var rowsElem = $("#mytable").get(0).rows;
+			if(rowsElem){
+				
+				for(var i = 0;i< rowsElem.length; i++){
+					var rowd = data[i];
+					var cellsElem = rowsElem[i].cells;
+					for(var j=0; j< cellsElem.length; j++){
+						cellsElem[j].innerHTML = rowd[j];
+					}
+				}
+			}
+		  }
+		});
+	});
+</script>
+</head>
+<body>
+<div class="main">
+  <!-- 搜索模块 -->
+  <div class="searchBox">
+    <h3><span>搜索商品111</span></h3>
+    <table>
+      <tr>
+        <th>商品编号：</th>
+        <td><input type="text" class="inp inp-w90" /></td>
+        <th>商品名称：</th>
+        <td><input type="text" class="inp" /></td>
+        <th>商品类目：</th>
+        <td><select class="select">
+            <option>请选择</option>
+          </select></td>
+      </tr>
+      <tr>
+        <th>商品状态：</th>
+        <td><select class="select" style="width:95px;">
+          <option>请选择</option>
+        </select></td>
+        <th>上架时间：</th>
+        <td><input type="date" class="inp inp-w70" />
+          -
+          <input type="date" class="inp inp-w70"/></td>
+        <th>&nbsp;</th>
+        <td><button type="submit" class="btn">搜 索</button></td>
+      </tr>
+    </table>
+  </div>
+  <!-- 搜索模块 END -->
+  <div class="tool"><span><a href="#" hidefocus="true" class="bt_add">批量上架</a></span> <span><a href="#" hidefocus="true" class="bt_no">批量下架</a></span> <span><a href="#" hidefocus="true" class="bt_del">批量删除</a></span></div>
+  <div class="clear"></div>
+  <!-- 列表模块 -->
+  <ul class="form-tab">
+    <li class="c"><span><a href="#">全部商品</a></span></li>
+    <li><span><a href="#">销售中的商品</a></span></li>
+    <li><span><a href="#">停售的商品</a></span></li>
+  </ul>
+  <div class="clear"></div>
+  <div class="listBox">
+    <ul>
+      <li class="hover">
+      <h3><span>商品列表</span></h3>
+      <table id="mytable">
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>商品编号</th>
+          <th>商品类目</th>
+          <th>价格</th>
+          <th>商品状态</th>
+          <th>库存</th>
+          <th>发布时间</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>金属扣指南针<img src="../image/zz/role_edit.gif" alt="" width="20" height="19" align="absmiddle"  onclick="loading();"/></td>
+          <td>汽车用品->指南针</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>销售中</td>
+          <td>200<img src="../image/zz/role_edit.gif" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>2010-10-26</td>
+          <td><a href="#" title="下架">下架</a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>金属扣指南针<img src="../image/zz/role_edit.gif" alt="" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>汽车用品->指南针</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>停售</td>
+          <td>200<img src="../image/zz/role_edit.gif" alt="" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>2010-10-26</td>
+          <td><a href="#" title="上架">上架</a> <a href="#" title="编辑">编辑</a> <a href="#" title="删除">删除</a></td>
+        </tr>
+      </table>
+      <div class="pages-box" >
+        <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+          <input type="text" size="2" title="输入页码按回车" />
+          <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+      </div>
+      </li>
+    <li>
+      <h3><span>销售中商品列表</span></h3>
+      <table>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>商品编号</th>
+          <th>商品名称</th>
+          <th>商品类目</th>
+          <th>销售价格</th>
+          <th>申报价</th>
+          <th>商品状态</th>
+          <th>库存</th>
+          <th>发布时间</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>金属扣指南针<img src="../image/zz/role_edit.gif" alt="" width="20" height="19" align="absmiddle"  onclick="loading();"/></td>
+          <td>汽车用品-&gt;指南针</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>销售中</td>
+          <td>200<img src="../image/zz/role_edit.gif" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>2010-10-26</td>
+          <td><a href="#" title="下架">下架</a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td class="bg">金属扣指南针<img src="../image/zz/role_edit.gif" alt="" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>汽车用品-&gt;指南针</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>销售中</td>
+          <td class="bg">200<img src="../image/zz/role_edit.gif" alt="" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>2010-10-26</td>
+          <td><a href="#" title="下架">下架</a></td>
+        </tr>
+      </table>
+      <div class="pages-box" >
+        <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+          <input type="text" size="2" title="输入页码按回车" />
+        <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+      </div>
+    </li>
+    <li>
+      <h3><span>停售商品列表</span></h3>
+      <table>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>商品编号</th>
+          <th>商品名称</th>
+          <th>商品类目</th>
+          <th>销售价格</th>
+          <th>申报价</th>
+          <th>商品状态</th>
+          <th>库存</th>
+          <th>发布时间</th>
+          <th>操作</th>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>金属扣指南针<img src="../image/zz/role_edit.gif" alt="" width="20" height="19" align="absmiddle"  onclick="loading();"/></td>
+          <td>汽车用品-&gt;指南针</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>停售</td>
+          <td>200<img src="../image/zz/role_edit.gif" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>2010-10-26</td>
+          <td><a href="#" title="上架">上架</a> <a href="#" title="编辑">编辑</a> <a href="#" title="删除">删除</a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>金属扣指南针<img src="../image/zz/role_edit.gif" alt="" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>汽车用品-&gt;指南针</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>停售</td>
+          <td>200<img src="../image/zz/role_edit.gif" alt="" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>2010-10-26</td>
+          <td><a href="#" title="上架">上架</a> <a href="#" title="编辑">编辑</a> <a href="#" title="删除">删除</a></td>
+        </tr>
+      </table>
+      <div class="pages-box" >
+        <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+          <input type="text" size="2" title="输入页码按回车" />
+          <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+      </div>
+    </li>
+    </ul>
+  </div>
+  <!-- 列表模块 END -->
+  <!--浮动层-->
+  <div id="layer" align="center"></div>
+  <div id="layer2">
+    <div class="searchBox">
+      <h3><img src="../image/zz/close.png" onclick="unload();" alt="点击关闭"/><span>操作</span></h3>
+      <table>
+        <tr>
+          <th>库存/商品名称：</th>
+          <td><label>
+              <input type="text" class="inp inp-w200" />
+            </label></td>
+        </tr>
+        <tr>
+          <th>&nbsp;</th>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="ttali-cent"><button type="submit" class="btn">确认修改</button>
+            <button type="submit" class="btn" onclick="unload();">取消</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- 浮动层 END -->
+</div>
+</body>
+</html>

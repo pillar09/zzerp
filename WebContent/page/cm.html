@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中智数码</title>
+<link href="../css/basic.css" rel="stylesheet" type="text/css" />
+<link href="../css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script>
+    $(function(){
+			var div_a =$(".listBox h3");
+			div_a.click(function(){	
+				$(".listBox table").hide()
+				var index =  div_a.index(this); 
+				$(".listBox table")   	
+						.eq(index).show() 
+			})
+		});
+		
+    
+    </script>
+</head>
+<body>
+<div class="main">
+  <div class="formBox">
+    <h3><i></i><span>商品类目管理</span></h3>
+    <div class="content">
+      <table class="c2">
+        <tr>
+          <th>类目名称：</th>
+          <td><input type="text" class="inp" />
+            <span class="red">*</span><span class="error">输入错误！</span></td>
+        </tr>
+        <tr>
+          <th>类目序号：</th>
+          <td><input type="text" class="inp" /></td>
+        </tr>
+        <tr>
+          <th>类目介绍 ：</th>
+          <td><textarea name="" cols="" rows="" class="textarea"></textarea></td>
+        </tr>
+        <tr id="ra8">
+          <th>属性列表：</th>
+          <td><div class="tool"> <span><a href="#" hidefocus="true" class="bt_add" >新增属性</a></span></div></td>
+        </tr>
+      </table>
+    </div>
+    <div class="form-but">
+      <!-- 表单按钮区 -->
+      <button type="button" class="button-s4">添加类目</button>
+      <button type="button" class="button-s4">删除类目</button>
+    </div>
+    <!-- 表单按钮区 END -->
+    <div class="clear"></div>
+  </div>
+  <!-- 表单模块 END -->
+  <div class="clear"></div>
+  <!-- 列表模块 -->
+  <div class="listBox">
+    <h3><span class="fl_l">商品类目</span><a href="#" class="fl_r">新增</a></h3>
+    <table>
+      <tr>
+        <th>序号</th>
+        <th>类目名称</th>
+        <th>属性</th>
+        <th>操作</th>
+      </tr>
+      <tr>
+        <td>001</td>
+        <td>插头</td>
+        <td>规范</td>
+        <td><a href="#">查看 </a> <a href="#">编辑 </a> <a href="#">删除</a></td>
+      </tr>
+      <tr class="bg">
+        <td>002</td>
+        <td>MP3</td>
+        <td>容量 品牌</td>
+        <td><a href="#">查看 </a> <a href="#">编辑 </a> <a href="#">删除</a></td>
+      </tr>
+      <tr>
+        <td>003</td>
+        <td>摄像头</td>
+        <td>适用&nbsp;尺寸&nbsp;主机型号</td>
+        <td><a href="#">查看 </a> <a href="#">编辑 </a> <a href="#">删除</a></td>
+      </tr>
+      <tr class="bg">
+        <td>004</td>
+        <td>雷达</td>
+        <td>语言&nbsp;主机型号</td>
+        <td><a href="#">查看 </a> <a href="#">编辑 </a> <a href="#">删除</a></td>
+      </tr>
+      <tr>
+        <td>005</td>
+        <td>5.0 inch GPS</td>
+        <td>电源接口&nbsp;主机型号</td>
+        <td><a href="#">查看 </a> <a href="#">编辑 </a> <a href="#">删除</a></td>
+      </tr>
+    </table>
+    <div class="pages-box" >
+      <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+        <input type="text" size="2" title="输入页码按回车">
+        <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+    </div>
+  </div>
+  <!-- 列表模块 END -->
+</div>
+</body>
+</html>

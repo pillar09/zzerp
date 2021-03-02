@@ -1,0 +1,111 @@
+<%@ page session="false" %>
+<%@ page pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>中智数码</title>
+    <link href="../css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	
+    <div class="main">
+    	 <h2>物流公司管理</h2>
+        
+        <div class="mag-t1">
+        	删除失败,您无权进行此操作！
+        </div>
+        
+        <div class="mag-t2">
+        	新增成功！
+        </div>
+       <div class="tool">
+        	
+            <span><a href="addShippingUserIndex.html" hidefocus="true" class="bt_add">新增</a></span>
+           
+           
+        </div> 
+        
+        <div class="clear"></div>
+ 
+		
+        <!-- 列表模块 -->
+        <div class="listBox"> 
+          <h3><span>物流公司管理</span></h3> 
+            <table > 
+                <tr>
+                  <th>名称</th>
+                    <th>描述</th>
+                    <th>URL</th>
+                    <th>物流佣金</th>
+                    <th>物流类型</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                  <td>EMS </td>
+                	<td>EMS </td>
+                    <td>http:// </td>
+                    <td>0.50</td>
+                    <td>急递</td>
+                    <td><a href="#">编辑</a> <a href="#">查看</a> <a href="#">删除</a></td>
+                </tr>
+				<tr class="bg">
+				  <td>EMS </td>
+                	<td>EMS </td>
+                    <td>http:// </td><td>0.50</td>
+                    <td>急递</td>
+                    <td><a href="#">编辑</a> <a href="#">查看</a> <a href="#">删除</a></td>
+                </tr>
+                <tr>
+                  <td>EMS </td>
+                	<td>EMS </td>
+                    <td>http:// </td><td>0.50</td>
+                    <td>急递</td>
+                    <td><a href="#">编辑</a> <a href="#">查看</a> <a href="#">删除</a></td>
+                </tr>
+				<tr class="bg">
+				  <td>EMS </td>
+                	<td>EMS </td>
+                    <td>http:// </td><td>0.50</td>
+                    <td>急递</td>
+                    <td><a href="#">编辑</a> <a href="#">查看</a> <a href="#">删除</a></td>
+                </tr>
+                <tr>
+                  <td>EMS </td>
+                	<td>EMS </td>
+                    <td>http:// </td><td>0.50</td>
+                    <td>急递</td>
+                    <td><a href="#">编辑</a> <a href="#">查看</a> <a href="#">删除</a></td>
+                </tr>
+
+            </table> 
+			
+             <div class="pages-box" >
+<div class="pages">
+                            <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            ...
+                            <a href="#">9</a>
+                            <a href="#" style="font-weight:bold">&raquo;</a> 
+                            <input type="text" size="2" title="输入页码按回车">
+                            <a href="#" style="color:#000">GO</a>
+                            页数: [ 1 / 253 ]
+               </div> 
+          </div>
+             
+        </div> <!-- 列表模块 END -->   
+        	
+           
+    </div>
+    
+</body>
+</html>

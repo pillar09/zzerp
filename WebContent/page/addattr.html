@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中智数码</title>
+<link href="../css/basic.css" rel="stylesheet" type="text/css" />
+<link href="../css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/layer.js"></script>
+<script>
+$(function(){
+		   	var div_a =$("#radio7");
+			$("#ra8").hide();
+			div_a.change(function(){
+					$("#ra8").show();
+				
+			})
+				
+})
+</script>
+</head>
+<body>
+<div class="main">
+  <!-- 表单模块 -->
+  <div class="mag-t1"> 操作失败！ </div>
+  <div class="mag-t2"> 操作成功！ </div>
+  <div class="formBox">
+    <h3><i></i><span>添加属性</span></h3>
+    <div class="content">
+      <table class="c5" style="width:750px;">
+        <tr>
+          <th>属性名 ：</th>
+          <td><input type="text" class="inp inp-w150" />
+            <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>是否必选 ：</th>
+          <td><input name="radio1" type="radio" id="radio3" value="radio" checked="checked" />是
+            <input type="radio" name="radio1" id="radio4" value="radio" />否 <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>录入方式 ：</th>
+          <td><input name="radio3" type="radio" id="radio5" value="radio" checked="checked" />手工录入
+            <input name="radio3" type="radio" id="radio6" value="radio" />多行文本框
+            <input name="radio3" type="radio" id="radio7" value="radio" />选择
+            </td>
+        </tr>
+        <tr id="ra8">
+          <th>可选值列表：</th>
+          <td><div class="tool"> <span><a href="#" hidefocus="true" class="bt_add" onclick="loading();" >新增可选值</a></span></div></td>
+        </tr>
+        <tr>
+          <th>属性描述：</th>
+          <td><textarea cols="45" rows="5" class="textarea" ></textarea></td>
+        </tr>
+      </table>
+    </div>
+    <div class="form-but">
+      <!-- 表单按钮区 -->
+      <button type="button" class="button-s4">添加</button>
+      <button type="button" class="button-s4" onclick="javascript:history.back(-1);">取消</button>
+    </div>
+    <!-- 表单按钮区 END -->
+  </div>
+  <!-- 表单模块 END -->
+  <!--浮动层-->
+  <div id="layer" align="center"></div>
+  <div id="layer2">
+    <div class="searchBox">
+      <h3><img src="../image/zz/close.png" onclick="unload();" alt="点击关闭"/><span>操作</span></h3>
+      <table>
+        <tr>
+          <th>可选值：</th>
+          <td><label>
+              <input type="text" class="inp" />
+            </label></td>
+        </tr>
+        <tr>
+          <th>图片：</th>
+          <td><input type="text" class="inp" style="width:120px;" />
+            <button type="button" class="button-s17">浏览</button></td>
+        </tr>
+        <tr>
+          <th>&nbsp;</th>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="ttali-cent"><button type="submit" class="btn">确定</button>
+            <button type="submit" class="btn" onclick="unload();">取消</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- 浮动层 END -->
+</div>
+</body>
+</html>

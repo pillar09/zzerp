@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中智数码</title>
+<link href="../css/basic.css" rel="stylesheet" type="text/css" />
+<link href="../css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script>
+$(function(){
+   	var div_a =$("#radio7");
+	$("#ra8").hide();
+	div_a.change(function(){
+		$("#ra8").show();
+	});
+})
+</script>
+</head>
+<body>
+<div class="main">
+  <!-- 表单模块 -->
+  <div class="mag-t1"> 修改失败！ </div>
+  <div class="mag-t2"> 修改成功！ </div>
+  <div class="formBox">
+  <form>
+    <h3><i></i><span>添加属性</span></h3>
+    <div class="content">
+      <table class="c5" style="width:750px;">
+        <tr>
+          <th>属性名 ：</th>
+          <td><input type="text" class="inp inp-w150" value="主机类型" />
+            <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>是否必选 ：</th>
+          <td><input type="radio" name="radio" id="radio3" value="radio" />是
+            <input type="radio" name="radio" id="radio4" value="radio" />否 <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>录入方式 ：</th>
+          <td><input name="radio3" type="radio" id="radio5" value="radio" checked="checked" /><label for='radio3'>手工录入</label>
+            <input name="radio3" type="radio" id="radio6" value="radio" /><label for='radio3'>多行文本框</label>
+            <input name="radio3" type="radio" id="radio7" value="radio" /><label for='radio3'>选择</label>
+            </td>
+        </tr>
+        <tr id="ra8">
+          <th>可选值列表：</th>
+          <td><div class="tool"> <span><a href="#" hidefocus="true" class="bt_add" >新增可选值</a></span></div></td>
+        </tr>
+        <tr>
+          <th>属性描述：</th>
+          <td><textarea cols="45" rows="5" class="textarea" >属性a描述  属性a描述  属性a描述</textarea></td>
+        </tr>
+      </table>
+    </div>
+    <div class="form-but">
+      <!-- 表单按钮区 -->
+      <button type="button" class="button-s4">修改</button>
+      <button type="button" class="button-s4" onclick="javascript:history.back(-1);">取消</button>
+    </div>
+    <!-- 表单按钮区 END -->
+  </form>
+  </div>
+  <!-- 表单模块 END -->
+</div>
+</body>
+</html>

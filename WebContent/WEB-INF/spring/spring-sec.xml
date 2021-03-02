@@ -1,0 +1,32 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<http auto-config="true" use-expressions="true" >
+		<intercept-url pattern="/main/login.jsp" access="permitAll"/>
+		<intercept-url pattern="/css/**" access="permitAll"/>
+		<intercept-url pattern="/image/**" access="permitAll"/>
+		<intercept-url pattern="/file/**" access="permitAll"/>
+		<intercept-url pattern="/js/**" access="permitAll"/>
+		<intercept-url pattern="/**" access="isAuthenticated()" />
+		
+		
+		<form-login login-page="/main/login.jsp" default-target-url="/main/index.jsp" 
+			authentication-failure-url="/main/login.jsp" />
+		<logout logout-success-url="/main/login.jsp" />
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider>
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="select username,cipher,state=0 from account where username=?" 
+				authorities-by-username-query="select u.username, ur.privilege from account u, capacity ur where u.capacity_id = ur.id and u.username =?" 
+			/>
+			<password-encoder ref="zzPasswordEncoder"></password-encoder>
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>
